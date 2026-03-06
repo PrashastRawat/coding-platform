@@ -26,8 +26,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "https://coding-platform-xxx.vercel.app",  # replace with your actual Vercel URL
-        "https://*.vercel.app",  # allows all vercel preview URLs
+        "https://coding-platform-omega.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
