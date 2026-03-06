@@ -24,12 +24,15 @@ app = FastAPI(title="Online Coding Practice Platform")
 from fastapi.middleware.cors import CORSMiddleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[
+        "http://localhost:5173",
+        "https://coding-platform-xxx.vercel.app",  # replace with your actual Vercel URL
+        "https://*.vercel.app",  # allows all vercel preview URLs
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 @app.on_event("startup")
 def on_startup():
     Base.metadata.create_all(bind=engine)
