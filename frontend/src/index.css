@@ -1,0 +1,11 @@
+
+
+@import "tailwindcss";
+
+.monaco-editor {
+  pointer-events: all !important;
+}
+
+.monaco-editor textarea {
+  pointer-events: all !important;
+}
