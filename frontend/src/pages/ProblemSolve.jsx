@@ -111,6 +111,7 @@ export default function ProblemSolve() {
   }, [id])
 
   const handleRun = async () => {
+    console.log('input_data:', testcases[0]?.input_data)  // ADD THIS
     setRunning(true)
     setActiveTab('result')
     setActiveResultTab(0)
