@@ -41,7 +41,7 @@ def run_code(code: str, input_data: str):
         start = time.time()
 
         result = subprocess.run(
-            ["python", file_name],
+            ["python3", file_name],
             input=input_data,
             text=True,
             capture_output=True,
