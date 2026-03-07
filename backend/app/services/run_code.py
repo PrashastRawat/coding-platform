@@ -7,8 +7,11 @@ BLOCKED_IMPORTS = [
     "os", "sys", "subprocess", "shutil", "pathlib",
     "socket", "requests", "urllib", "http", "ftplib",
     "importlib", "ctypes", "multiprocessing", "threading",
-    "pickle", "shelve", "eval", "exec", "open",
-    "__import__", "builtins"
+    "pickle", "shelve"
+]
+
+BLOCKED_CALLS = [
+    "__import__", "eval", "exec"
 ]
 
 def is_code_safe(code: str) -> tuple[bool, str]:
@@ -16,8 +19,9 @@ def is_code_safe(code: str) -> tuple[bool, str]:
     for keyword in BLOCKED_IMPORTS:
         if f"import {keyword}" in code_lower or f"from {keyword}" in code_lower:
             return False, f"Use of '{keyword}' is not allowed"
-        if keyword in ["eval", "exec", "__import__", "open"] and keyword + "(" in code_lower:
-            return False, f"Use of '{keyword}()' is not allowed"
+    for call in BLOCKED_CALLS:
+        if call + "(" in code_lower:
+            return False, f"Use of '{call}()' is not allowed"
     return True, ""
 
 def run_code(code: str, input_data: str):
