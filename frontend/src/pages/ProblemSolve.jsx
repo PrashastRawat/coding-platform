@@ -30,9 +30,8 @@ function getTemplate(title) {
     # return indices of the two numbers that add up to target
     pass
 
-line1 = input().split()
-nums = list(map(int, line1[:-1]))
-target = int(line1[-1])
+nums = list(map(int, input().split()))
+target = int(input())
 result = twoSum(nums, target)
 print(' '.join(map(str, result)))`,
     'maximum_subarray': `def maxSubArray(nums: list) -> int:
@@ -111,7 +110,6 @@ export default function ProblemSolve() {
   }, [id])
 
   const handleRun = async () => {
-    console.log('input_data:', testcases[0]?.input_data)  // ADD THIS
     setRunning(true)
     setActiveTab('result')
     setActiveResultTab(0)
