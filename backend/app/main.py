@@ -18,6 +18,14 @@ from backend.app.api.profile import router as profile_router   # NEW
 from backend.app.api.admin import router as admin_router       # NEW
 from backend.app.api.ai import router as ai_router             # NEW
 
+from slowapi import Limiter, _rate_limit_exceeded_handler
+from slowapi.util import get_remote_address
+from slowapi.errors import RateLimitExceeded
+
+limiter = Limiter(key_func=get_remote_address)
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+
 app = FastAPI(title="Online Coding Practice Platform")
 
 # ADD THIS BLOCK RIGHT HERE
