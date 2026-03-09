@@ -87,6 +87,12 @@ export default function Login() {
                 placeholder="••••••••"
                 className="w-full bg-[#1e1e1e] border border-[#3c3c3c] rounded px-4 py-2.5 text-[#d4d4d4] font-mono text-sm placeholder-[#555] focus:outline-none focus:border-[#569cd6] transition-colors"
               />
+              {/* Forgot password link */}
+              <div className="text-right mt-1">
+                <Link to="/forgot-password" className="text-[#969696] hover:text-[#569cd6] font-mono text-xs transition-colors">
+                  // forgot_password()
+                </Link>
+              </div>
             </div>
 
             {/* Submit */}
@@ -110,7 +116,4 @@ export default function Login() {
       </div>
     </div>
   )
-
-
 }
-
