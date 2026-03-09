@@ -6,7 +6,8 @@ class Settings(BaseSettings):
     ALGORITHM: str
     ACCESS_TOKEN_EXPIRE_MINUTES: int
     GEMINI_API_KEY: str = ""
-    GROQ_API_KEY: str = ""  # ✅ add this line
+    GROQ_API_KEY: str = ""
+    RESEND_API_KEY: str = "" 
 
     class Config:
         env_file = ".env"
