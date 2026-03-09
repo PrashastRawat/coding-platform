@@ -9,6 +9,11 @@ import Problems from './pages/Problems'
 import ProblemSolve from './pages/ProblemSolve'
 import Profile from './pages/Profile'
 import Admin from './pages/Admin'
+import ForgotPassword from './pages/ForgotPassword'
+import ResetPassword from './pages/ResetPassword'
+
+// inside your routes:
+
 
 export default function App() {
   return (
@@ -31,25 +36,27 @@ export default function App() {
 
         {/* Navbar hidden on login/register pages */}
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route
-            path="*"
-            element={
-              <>
-                <Navbar />
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/problems" element={<Problems />} />
-                  <Route path="/problems/:id" element={<ProblemSolve />} />
-                  <Route path="/profile" element={<Profile />} />
-                  <Route path="/admin" element={<Admin />} />
-                  <Route path="*" element={<Navigate to="/" />} />
-                </Routes>
-              </>
-            }
-          />
-        </Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
+            <Route
+              path="*"
+              element={
+                <>
+                  <Navbar />
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/problems" element={<Problems />} />
+                    <Route path="/problems/:id" element={<ProblemSolve />} />
+                    <Route path="/profile" element={<Profile />} />
+                    <Route path="/admin" element={<Admin />} />
+                    <Route path="*" element={<Navigate to="/" />} />
+                  </Routes>
+                </>
+              }
+            />
+          </Routes>
       </BrowserRouter>
     </AuthProvider>
   )
